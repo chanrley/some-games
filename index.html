@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sudoku</h1>
+            <div class="controls">
+                <button id="newGame">Novo Jogo</button>
+                <button id="checkGame">Verificar</button>
+                <button id="solveGame">Resolver</button>
+                <select id="difficulty">
+                    <option value="easy">Fácil</option>
+                    <option value="medium" selected>Médio</option>
+                    <option value="hard">Difícil</option>
+                </select>
+            </div>
+        </header>
+        
+        <div class="game-info">
+            <div class="timer">
+                <span>Tempo: <span id="timer">00:00</span></span>
+            </div>
+            <div class="message" id="message"></div>
+        </div>
+
+        <div class="board-container">
+            <div id="board" class="board"></div>
+        </div>
+
+        <div class="number-pad">
+            <button class="num-btn" data-number="1">1</button>
+            <button class="num-btn" data-number="2">2</button>
+            <button class="num-btn" data-number="3">3</button>
+            <button class="num-btn" data-number="4">4</button>
+            <button class="num-btn" data-number="5">5</button>
+            <button class="num-btn" data-number="6">6</button>
+            <button class="num-btn" data-number="7">7</button>
+            <button class="num-btn" data-number="8">8</button>
+            <button class="num-btn" data-number="9">9</button>
+            <button class="num-btn clear" data-number="0">Limpar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

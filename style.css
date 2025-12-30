@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+#newGame, #checkGame, #solveGame {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+#newGame:hover, #checkGame:hover, #solveGame:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#difficulty {
+    padding: 10px 15px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    background: white;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timer {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+#message {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 8px;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.message.info {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 2px;
+    background: #333;
+    border: 3px solid #333;
+    padding: 2px;
+    max-width: 450px;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.cell {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.cell:hover {
+    background: #f0f0f0;
+}
+
+.cell.selected {
+    background: #b3d9ff;
+}
+
+.cell.prefilled {
+    color: #333;
+    font-weight: 700;
+    cursor: default;
+}
+
+.cell.user-input {
+    color: #667eea;
+}
+
+.cell.error {
+    background: #ffcccc;
+    color: #cc0000;
+}
+
+.cell.correct {
+    background: #ccffcc;
+}
+
+/* Bordas para as caixas 3x3 */
+.cell:nth-child(3n) {
+    border-right: 2px solid #333;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid #333;
+}
+
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.num-btn {
+    padding: 15px;
+    background: #f8f9fa;
+    color: #333;
+    border: 2px solid #dee2e6;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.num-btn:hover {
+    background: #e9ecef;
+    border-color: #667eea;
+    transform: scale(1.05);
+}
+
+.num-btn.clear {
+    grid-column: span 2;
+    background: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+.num-btn.clear:hover {
+    background: #c82333;
+    border-color: #bd2130;
+}
+
+.num-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .cell {
+        font-size: 18px;
+    }
+
+    .board {
+        max-width: 100%;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .controls button, #difficulty {
+        width: 100%;
+    }
+}
+
